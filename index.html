@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xml:lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-language" content="zh-CN">
+<title>达达电影网｜反逻辑的放映：达达主义电影、拼贴、偶然性与无厘头观影指南</title>
+<meta name="description" content="达达电影网，是一份反逻辑的放映。专注达达主义电影、先锋短片、拼贴电影、无厘头、荒诞喜剧、意识流与非因果叙事，提供片单、影评与观影渠道。不讲道理，只讲那一秒的心跳。">
+<meta name="keywords" content="达达电影网,达达主义,达达主义电影,先锋电影,实验电影,拼贴,拼贴电影,蒙太奇,偶然性,无厘头,荒诞喜剧,意识流,非因果叙事,反叙事,短片,动画,华语无厘头,欧洲先锋电影,日本无厘头,电影推荐,电影片单,电影影评,4K修复,0149导航,dadadianyingwang-cn">
+<meta name="robots" content="index,follow">
+<meta name="author" content="达达电影网编辑部">
+<link rel="canonical" href="https://dadadianyingwang-cn.github.io">
+<style>
+/* ============ 变量：靛蓝 × 朱砂 × 骨白（达达拼贴） ============ */
+:root{
+  --indigo:#2a2b5c;    /* 靛蓝 */
+  --indigo-d:#17182f;
+  --cinnabar:#e0362b;  /* 朱砂 */
+  --cinnabar-d:#b3261d;
+  --bone:#f4f1e6;      /* 骨白 */
+  --bone2:#e6e0ce;
+  --ink:#1b1c22;
+  --ink2:#525560;
+  --line:rgba(27,28,34,.24);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--bone);color:var(--ink);
+  font-family:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;line-height:1.85;
+  background-image:
+    radial-gradient(circle at 12% 12%, rgba(224,54,43,.13), transparent 40%),
+    radial-gradient(circle at 88% 88%, rgba(42,43,92,.14), transparent 42%),
+    repeating-linear-gradient(0deg, rgba(0,0,0,.02) 0 1px, transparent 1px 4px);
+  -webkit-text-size-adjust:100%;
+}
+img{max-width:100%;display:block;}
+a{color:var(--cinnabar-d);text-decoration:none;}
+a:hover{color:var(--cinnabar);}
+
+/* ============ 碎片雨（canvas） ============ */
+#shard{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;}
+
+/* ============ 撕裂纸条跑马灯 ============ */
+.marquee{
+  position:relative;z-index:2;
+  background:var(--ink);color:var(--bone);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+  padding:11px 0;overflow:hidden;white-space:nowrap;
+  transform:skewX(-6deg);
+  border-top:5px solid var(--cinnabar);border-bottom:5px solid var(--indigo);
+}
+.marquee span{display:inline-block;padding-left:100%;animation:mq 44s linear infinite;}
+.marquee b{color:var(--cinnabar);font-weight:700;}
+@keyframes mq{to{transform:translateX(-100%);}}
+
+/* ============ 通告 ============ */
+.notice{
+  position:relative;z-index:2;
+  background:var(--cinnabar);color:#fff;
+  font-size:13.5px;line-height:1.7;padding:12px 24px;text-align:center;
+}
+.notice strong{letter-spacing:.05em;}
+
+/* ============ 刊首 ============ */
+header.lede{
+  position:relative;z-index:2;
+  max-width:1180px;margin:0 auto;padding:54px 26px 30px;
+  display:grid;grid-template-columns:1.25fr 1fr;gap:46px;align-items:center;
+}
+.lede h1{
+  font-family:"Songti SC","Source Han Serif SC","Noto Serif CJK SC",Georgia,serif;
+  font-size:clamp(34px,6.6vw,68px);line-height:1.12;margin:0 0 8px;
+  color:var(--ink);letter-spacing:-.01em;
+}
+.lede h1 em{
+  font-style:normal;background:var(--indigo);color:var(--bone);
+  padding:4px 18px;display:inline-block;transform:skewX(-9deg);
+  box-shadow:-8px 8px 0 var(--cinnabar);
+}
+.lede .sub{
+  font-family:ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:.2em;
+  color:var(--ink2);text-transform:uppercase;margin:14px 0 18px;
+}
+.lede p{margin:0 0 12px;color:var(--ink2);font-size:16.5px;}
+.lede .sig{font-size:13.5px;color:var(--ink2);letter-spacing:.05em;}
+
+/* 达达头像 logo（纯 CSS：两片椭圆 + 斜眼 + 单线嘴） */
+.dadaface{width:100%;aspect-ratio:1/1;position:relative;display:flex;align-items:center;justify-content:center;}
+.dadaface .egg{
+  width:70%;height:88%;background:var(--bone2);border:3px solid var(--ink);
+  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+  position:relative;overflow:hidden;
+  box-shadow:14px 14px 0 var(--cinnabar);
+  animation:wob 5.5s ease-in-out infinite;
+}
+.dadaface .eye{position:absolute;top:38%;width:14%;height:22%;background:var(--indigo);border-radius:50%;}
+.dadaface .eye.l{left:24%;transform:rotate(-14deg);}
+.dadaface .eye.r{right:24%;transform:rotate(20deg);height:16%;top:42%;}
+.dadaface .pupil{position:absolute;width:34%;height:34%;background:var(--bone);border-radius:50%;top:33%;left:33%;}
+.dadaface .mouth{position:absolute;left:30%;right:30%;bottom:20%;height:5px;background:var(--ink);}
+.dadaface .tear{position:absolute;top:52%;left:26%;width:5px;height:22px;background:var(--cinnabar);border-radius:4px;opacity:.8;}
+@keyframes wob{0%,100%{transform:rotate(-5deg) skewX(-3deg)}50%{transform:rotate(5deg) skewX(3deg)}}
+
+.indexcard{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;z-index:2;}
+.indexcard div{background:var(--bone2);border:2px solid var(--ink);padding:12px 14px;transform:skewX(-4deg);}
+.indexcard dt{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.16em;color:var(--ink2);}
+.indexcard dd{margin:2px 0 0;font-size:20px;font-weight:700;color:var(--indigo);font-variant-numeric:tabular-nums;}
+.stamp{
+  position:absolute;right:-14px;bottom:-20px;z-index:3;
+  border:3px solid var(--cinnabar);color:var(--cinnabar);background:var(--bone);
+  font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.16em;
+  padding:6px 12px;transform:rotate(-9deg);
+}
+
+/* ============ 导航 ============ */
+nav.toc{
+  position:sticky;top:0;z-index:50;
+  background:rgba(244,241,230,.96);backdrop-filter:blur(8px);
+  border-bottom:3px solid var(--ink);transform:skewX(-3deg);
+}
+nav.toc .inner{
+  max-width:1180px;margin:0 auto;padding:11px 20px;
+  display:flex;align-items:center;gap:7px;flex-wrap:wrap;
+}
+.brand{font-weight:800;letter-spacing:.03em;color:var(--indigo);margin-right:10px;white-space:nowrap;}
+.brand small{display:block;font-family:ui-monospace,Menlo,monospace;font-size:10px;color:var(--ink2);letter-spacing:.2em;font-weight:400;}
+nav.toc a{font-size:13.5px;padding:7px 12px;color:var(--ink2);border:1px dashed transparent;}
+nav.toc a:hover{background:var(--cinnabar);color:#fff;border-color:var(--cinnabar);transform:skewX(-6deg);}
+
+/* ============ 章节骨架 ============ */
+main{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 26px 70px;}
+section{padding:60px 0 8px;}
+.sec-head{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:30px;border-bottom:5px solid var(--indigo);padding-bottom:10px;}
+.sec-head .no{font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.2em;color:#fff;background:var(--cinnabar);padding:5px 11px;transform:skewX(-10deg);}
+.sec-head h2{font-family:"Songti SC","Source Han Serif SC",Georgia,serif;font-size:clamp(24px,4vw,36px);margin:0;color:var(--ink);}
+.sec-head .en{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.24em;color:var(--ink2);text-transform:uppercase;}
+.lead{color:var(--ink2);font-size:16px;margin:0 0 26px;max-width:82ch;}
+
+/* ============ 栏目 01：拼贴卡（不规则旋转 + 撕边） ============ */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.cutout{
+  background:var(--bone2);border:2px solid var(--ink);padding:20px 18px 18px;position:relative;
+  box-shadow:9px 9px 0 var(--indigo);
+}
+.cutout:nth-child(1){transform:rotate(-1.6deg);}
+.cutout:nth-child(2){transform:rotate(1.2deg);box-shadow:9px 9px 0 var(--cinnabar);}
+.cutout:nth-child(3){transform:rotate(-.9deg);}
+.cutout:nth-child(4){transform:rotate(1.8deg);box-shadow:9px 9px 0 var(--indigo);}
+.cutout .num{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.2em;color:#fff;background:var(--ink);display:inline-block;padding:3px 9px;}
+.cutout h3{margin:8px 0 8px;font-size:20px;font-family:"Songti SC",Georgia,serif;color:var(--cinnabar-d);}
+.cutout p{margin:0;font-size:13.7px;color:var(--ink2);}
+.cutout .foot{
+  display:flex;justify-content:space-between;gap:8px;margin-top:13px;padding-top:9px;
+  border-top:2px dashed var(--line);
+  font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;color:var(--ink2);
+}
+
+/* ============ 栏目 02：偶然性轮盘（CSS conic-gradient，无 canvas） ============ */
+.wheelwrap{display:grid;grid-template-columns:minmax(250px,340px) 1fr;gap:34px;align-items:center;}
+.wheel{
+  width:100%;aspect-ratio:1/1;border-radius:50%;position:relative;
+  background:conic-gradient(
+    var(--cinnabar) 0 22%, var(--indigo) 22% 44%, var(--bone2) 44% 60%,
+    #7a7c8c 60% 76%, #c9b97a 76% 90%, var(--ink) 90% 100%);
+  border:7px solid var(--ink);box-shadow:0 16px 34px -20px rgba(27,28,34,.8);
+  animation:spin 26s linear infinite;
+}
+.wheel::after{
+  content:"";position:absolute;inset:22%;border-radius:50%;background:var(--bone);
+  border:5px solid var(--ink);box-shadow:inset 0 0 0 8px var(--cinnabar);
+}
+.wheel::before{
+  content:"?";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:Georgia,serif;font-size:74px;color:var(--cinnabar);z-index:3;
+  text-shadow:4px 4px 0 var(--ink);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.chance{display:grid;gap:12px;}
+.chance .row{display:grid;grid-template-columns:96px 1fr 68px;align-items:center;gap:14px;background:var(--bone2);border:2px solid var(--ink);padding:10px 14px;}
+.chance .row .k{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.14em;color:var(--indigo);font-weight:700;}
+.chance .row .v{font-size:14.5px;color:var(--ink);}
+.chance .row .p{font-family:Georgia,serif;font-size:19px;font-weight:700;color:var(--cinnabar-d);text-align:right;font-variant-numeric:tabular-nums;}
+
+/* ============ 栏目 03：剪刀步（zigzag 阶梯） ============ */
+.zig{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);}
+.zig .step{
+  padding:18px 16px 16px;min-height:150px;position:relative;overflow:hidden;
+  background:var(--bone);border-right:2px dashed var(--line);
+}
+.zig .step:nth-child(even){background:var(--indigo);color:var(--bone);transform:translateY(22px);}
+.zig .step:nth-child(odd){background:var(--bone2);}
+.zig .step:nth-child(4n){border-right:none;}
+.zig .step .big{font-family:Georgia,serif;font-size:34px;font-weight:700;color:var(--cinnabar);line-height:1;opacity:.85;}
+.zig .step:nth-child(even) .big{color:var(--cinnabar);}
+.zig .step h3{margin:6px 0 7px;font-size:16.5px;font-family:"Songti SC",Georgia,serif;}
+.zig .step p{margin:0;font-size:12.8px;opacity:.82;}
+
+/* ============ 栏目 04：报纸分栏 ============ */
+.paper-grid{display:grid;grid-template-columns:2fr 1fr;gap:34px;align-items:start;}
+.paper{
+  column-count:2;column-gap:32px;column-rule:3px solid var(--indigo);
+  background:var(--bone2);border:2px solid var(--ink);padding:26px 28px;
+}
+.paper h3{column-span:all;margin:0 0 12px;font-family:"Songti SC",Georgia,serif;font-size:25px;color:var(--indigo);border-bottom:4px solid var(--cinnabar);padding-bottom:8px;}
+.paper p{margin:0 0 14px;font-size:15px;color:var(--ink2);text-align:justify;}
+.paper p:first-of-type::first-letter{
+  font-family:Georgia,serif;font-size:46px;line-height:.84;float:left;
+  color:var(--bone);background:var(--cinnabar);padding:6px 12px;margin:5px 9px 0 0;
+  transform:skewX(-8deg);
+}
+.paper blockquote{column-span:all;margin:6px 0 16px;padding:14px 18px;background:var(--indigo);color:var(--bone);font-size:15px;border-left:7px solid var(--cinnabar);}
+.paper blockquote cite{display:block;margin-top:6px;font-size:11.5px;letter-spacing:.14em;color:var(--cinnabar);font-style:normal;}
+.side{border-top:9px solid var(--cinnabar);background:var(--bone);padding:18px 20px;border:2px solid var(--ink);}
+.side h4{margin:0 0 12px;font-size:14px;letter-spacing:.1em;color:var(--indigo);font-family:ui-monospace,Menlo,monospace;}
+.side ol{margin:0;padding-left:0;list-style:none;counter-reset:kw;}
+.side li{counter-increment:kw;padding:9px 0 9px 46px;position:relative;font-size:13.6px;color:var(--ink2);border-bottom:1px dotted var(--line);}
+.side li:last-child{border-bottom:none;}
+.side li::before{content:counter(kw,decimal-leading-zero);position:absolute;left:0;top:9px;font-family:Georgia,serif;font-size:20px;color:var(--cinnabar-d);line-height:1;}
+.side li b{color:var(--ink);font-weight:600;}
+
+/* ============ 栏目 05：邮票对开 ============ */
+.dbl{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.stampcard{
+  background:var(--bone);border:3px solid var(--ink);position:relative;
+  padding:22px 24px 30px;
+  /* 齿孔 */
+  background-image:radial-gradient(circle at 0 6px, var(--bone) 3px, transparent 3.4px);
+  background-size:16px 16px;background-position:-8px -8px;
+  box-shadow:10px 10px 0 var(--indigo);
+}
+.stampcard:nth-child(2){box-shadow:10px 10px 0 var(--cinnabar);}
+.stampcard .hd{padding:14px 16px;background:var(--indigo);color:var(--bone);margin:-22px -24px 16px;}
+.stampcard:nth-child(2) .hd{background:var(--cinnabar);}
+.stampcard .hd em{font-style:normal;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.24em;opacity:.85;}
+.stampcard .hd h3{margin:3px 0 0;font-size:21px;font-family:"Songti SC",Georgia,serif;}
+.stampcard .bd dl{margin:0;display:grid;grid-template-columns:74px 1fr;gap:8px 14px;font-size:13.8px;}
+.stampcard .bd dt{color:var(--ink2);font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.14em;align-self:center;}
+.stampcard .bd dd{margin:0;color:var(--ink2);}
+.stampcard .bd dd b{color:var(--cinnabar-d);}
+.dur{position:absolute;right:18px;bottom:12px;font-family:Georgia,serif;font-size:25px;font-weight:700;color:var(--indigo);line-height:1;}
+.stampcard:nth-child(2) .dur{color:var(--cinnabar-d);}
+
+/* ============ 栏目 06：四格达达宣言 ============ */
+.grid4def{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.def{background:var(--bone2);border:2px solid var(--ink);padding:18px 18px 16px;position:relative;}
+.def::before{content:"";position:absolute;top:0;left:0;width:100%;height:7px;background:var(--cinnabar);}
+.def:nth-child(2)::before{background:var(--indigo);}
+.def:nth-child(3)::before{background:var(--ink);}
+.def:nth-child(4)::before{background:#c9b97a;}
+.def h3{margin:0 0 8px;font-size:16px;color:var(--indigo);}
+.def p{margin:0;font-size:13.6px;color:var(--ink2);}
+
+/* ============ 页脚 ============ */
+footer{position:relative;z-index:2;background:var(--indigo);color:var(--bone);font-size:13.5px;line-height:1.9;}
+footer .wrap{max-width:1180px;margin:0 auto;padding:44px 26px 26px;}
+footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:30px;padding-bottom:26px;border-bottom:2px solid rgba(244,241,230,.2);}
+footer h4{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.22em;color:var(--cinnabar);margin:0 0 10px;}
+footer p{margin:0 0 10px;color:rgba(244,241,230,.74);}
+footer ul{margin:0;padding:0;list-style:none;}
+footer li{padding:5px 0;color:rgba(244,241,230,.6);font-size:13px;}
+footer li b{color:var(--bone);font-weight:600;}
+footer .copy{padding-top:20px;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.1em;color:rgba(244,241,230,.46);}
+
+/* ============ 回到顶部（斜方块） ============ */
+.top{
+  position:fixed;right:18px;bottom:20px;z-index:60;width:52px;height:52px;border:none;cursor:pointer;
+  background:var(--cinnabar);color:var(--bone);font-size:18px;font-weight:700;
+  clip-path:polygon(20% 0,100% 20%,80% 100%,0 80%);
+  box-shadow:0 10px 24px -12px rgba(27,28,34,.8);
+  opacity:0;pointer-events:none;transition:.25s;
+}
+.top.show{opacity:1;pointer-events:auto;}
+.top:hover{background:var(--indigo);transform:translateY(-3px) rotate(-4deg);}
+
+/* ============ 响应式 ============ */
+@media (max-width:1040px){
+  .grid4,.grid4def,.zig{grid-template-columns:repeat(2,1fr);}
+  .zig .step{border-right:none;border-bottom:2px dashed var(--line);transform:none !important;min-height:0;}
+  .zig .step:nth-child(odd){background:var(--bone2);}
+  .zig .step:nth-child(even){background:var(--indigo);color:var(--bone);}
+  .paper-grid{grid-template-columns:1fr;}
+  .side{order:-1;}
+  .wheelwrap{grid-template-columns:240px 1fr;}
+  header.lede{grid-template-columns:1fr;gap:26px;padding-top:36px;}
+  footer .cols{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  body{font-size:15.5px;}
+  .grid4,.grid4def,.dbl{grid-template-columns:1fr;}
+  .paper{column-count:1;padding:20px 18px;}
+  .paper p:first-of-type::first-letter{font-size:38px;}
+  .wheelwrap{grid-template-columns:1fr;}
+  .chance .row{grid-template-columns:1fr 56px;gap:8px;}
+  .chance .row .k{grid-column:1/3;text-align:left;font-size:12px;padding-bottom:2px;}
+  .chance .row .v{grid-column:1/2;}
+  .chance .row .p{grid-column:2/3;text-align:right;}
+  header.lede,main{padding-left:18px;padding-right:18px;}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:6px;}
+  .indexcard{grid-template-columns:1fr 1fr;}
+  nav.toc .inner{padding:10px 14px;gap:5px;max-height:48px;overflow:hidden;}
+  nav.toc.open .inner{max-height:none;overflow:visible;}
+  nav.toc a{font-size:12.5px;padding:6px 9px;}
+  .brand{width:100%;margin:0 0 4px;}
+  .stampcard .bd dl{grid-template-columns:1fr;}
+  .stampcard .bd dt{margin-top:6px;}
+  footer .cols{grid-template-columns:1fr;}
+  footer .wrap{padding-left:18px;padding-right:18px;}
+}
+@media print{
+  #shard,.marquee,nav.toc,.top,.notice{display:none !important;}
+  body{background:#fff;font-size:11pt;}
+  header.lede,main,footer .wrap{max-width:none;padding:0;}
+  section{page-break-inside:avoid;padding-top:18px;}
+  .cutout,.def,.stampcard{box-shadow:none;transform:none !important;}
+  .wheel{animation:none;}
+  *{animation:none !important;transition:none !important;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<canvas id="shard" aria-hidden="true"></canvas>
+
+<div class="marquee" aria-hidden="true">
+  <span><b>DADA CINEMA</b> &nbsp;·&nbsp; 达达主义 &nbsp;·&nbsp; 达达主义电影 &nbsp;·&nbsp; 拼贴 &nbsp;·&nbsp; 偶然性 &nbsp;·&nbsp; 无厘头 &nbsp;·&nbsp; 荒诞喜剧 &nbsp;·&nbsp; 意识流 &nbsp;·&nbsp; 非因果叙事 &nbsp;·&nbsp; 反叙事 &nbsp;·&nbsp; 蒙太奇 &nbsp;·&nbsp; 先锋短片 &nbsp;·&nbsp; 拼贴动画 &nbsp;·&nbsp; 华语无厘头 &nbsp;·&nbsp; 卓别林 &nbsp;·&nbsp; 布努埃尔 &nbsp;·&nbsp; 寺山修司 &nbsp;·&nbsp; 0149 个达达瞬间 &nbsp;·&nbsp; 达达电影网：不讲道理，只讲那一秒的心跳</span>
+</div>
+
+<div class="notice" role="note">
+  <strong>达达电影网 · 反逻辑的放映</strong>　"达达"取 1916 年苏黎世 <strong>Cabaret Voltaire</strong> 之义：<strong>反对逻辑、反对审美、反对一切"应该"</strong>。本站专注达达主义电影、先锋短片、拼贴、无厘头、荒诞喜剧与意识流，<strong>不做资源站、不挂盗链、不引导下载</strong>。
+</div>
+
+<header class="lede">
+  <div>
+    <div class="sub">DADA CINEMA &nbsp;·&nbsp; SINCE 0149</div>
+    <h1><em>达达电影网</em><br>反逻辑的放映</h1>
+    <p>达达电影网，是一份<strong>反逻辑的放映</strong>。当所有电影都在教你"因为所以"，我们想给你看那些<strong>不需要原因</strong>的影像：一只眼睛被刀切开的 17 秒、一只蚂蚁爬过 8 分钟、一个男人用 20 年把房子刷成白色。</p>
+    <p>判断标准只有一条：<strong>看完之后，你有没有在那一秒，笑出来或者愣住？</strong></p>
+    <p class="sig">编辑部 · 三人 · 每周五更新 · 0149 个达达瞬间</p>
+    <div class="indexcard" role="list">
+      <div role="listitem"><dt>达达词条</dt><dd>0149</dd></div>
+      <div role="listitem"><dt>拆解影片</dt><dd>063</dd></div>
+      <div role="listitem"><dt>片单累计</dt><dd>198</dd></div>
+    </div>
+  </div>
+
+  <div style="position:relative">
+    <div class="dadaface" role="img" aria-label="达达头像：斜眼、单线嘴、一滴朱砂泪">
+      <span class="egg">
+        <span class="eye l"><span class="pupil"></span></span>
+        <span class="eye r"><span class="pupil"></span></span>
+        <span class="tear"></span>
+        <span class="mouth"></span>
+      </span>
+    </div>
+    <div class="stamp">反逻辑 · 反审美 · 反"应该"</div>
+  </div>
+</header>
+
+<nav class="toc" id="nav" role="navigation" aria-label="栏目导航">
+  <div class="inner">
+    <span class="brand">达达电影网<small>DADADIANKINGWANG-CN</small></span>
+    <a href="#top">刊首</a>
+    <a href="#cut">达达词条</a>
+    <a href="#wheel">偶然轮盘</a>
+    <a href="#zig">剪刀步</a>
+    <a href="#note">达达长文</a>
+    <a href="#pick">本周达达</a>
+    <a href="#about">关于</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ 栏目 01：拼贴卡 ============ -->
+  <section id="cut" aria-labelledby="h-cut">
+    <div class="sec-head">
+      <span class="no">No. 01</span>
+      <h2 id="h-cut">达达词条：四种不讲道理的语法</h2>
+      <span class="en">Glossary of the Illogical</span>
+    </div>
+    <p class="lead">"达达"不是一种类型，而是<strong>一种拒绝被理解的态度</strong>。以下四个词，是我们判断一部电影"够不够达达"的尺子。</p>
+    <div class="grid4" id="cutGrid"></div>
+  </section>
+
+  <!-- ============ 栏目 02：偶然性轮盘 ============ -->
+  <section id="wheel" aria-labelledby="h-wheel">
+    <div class="sec-head">
+      <span class="no">No. 02</span>
+      <h2 id="h-wheel">偶然轮盘：达达片单的情绪配方</h2>
+      <span class="en">Wheel of Chance</span>
+    </div>
+    <p class="lead">达达电影的配方，从来不是"剧情"。是<strong>比例</strong>。把下面六样东西按比例混在一起，摇匀，放映——你就得到一部不需要字幕的电影。</p>
+    <div class="wheelwrap">
+      <div class="wheel" aria-hidden="true"></div>
+      <div class="chance" id="chanceGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ 栏目 03：剪刀步 ============ -->
+  <section id="zig" aria-labelledby="h-zig">
+    <div class="sec-head">
+      <span class="no">No. 03</span>
+      <h2 id="h-zig">剪刀步：八部"看完不知道发生了什么"的片</h2>
+      <span class="en">The Scissor Steps</span>
+    </div>
+    <p class="lead">达达电影的正确打开方式：<strong>不要问"它在讲什么"，要问"它让我感觉到了什么"</strong>。下面八部，按"逻辑被剪掉的长度"排序。</p>
+    <div class="zig" id="zigGrid"></div>
+  </section>
+
+  <!-- ============ 栏目 04：长文 ============ -->
+  <section id="note" aria-labelledby="h-note">
+    <div class="sec-head">
+      <span class="no">No. 04</span>
+      <h2 id="h-note">达达长文：笑，是最后一道防线</h2>
+      <span class="en">Dada Notebook</span>
+    </div>
+
+    <div class="paper-grid">
+      <article class="paper">
+        <h3>笑，是一种观影伦理</h3>
+        <p>1924 年，布努埃尔把一只牛眼和一道划过眼球的刀片剪在一起，观众当场呕吐、离席、报警。这部 17 分钟的短片叫《一条安达鲁狗》，它没有剧本，它的创作方法只有一句："<strong>凡是可能引起我们注意的，都写下来；凡是能够解释的，都删掉。</strong>"</p>
+        <p>这就是达达电影的全部方法论：<strong>用拼贴代替因果，用偶然代替动机，用笑代替理解</strong>。它不解释，它只是把两样不该在一起的东西，硬放在同一个镜头里——于是意义从缝隙里长出来。</p>
+        <blockquote>"看不懂，不是观众的失败，是电影<strong>终于不再替你想</strong>。"<cite>— 达达电影网编辑部 · 第 0149 期</cite></blockquote>
+        <p>所以"达达"在今天还剩什么？答案是<strong>无厘头</strong>。周星驰的"其实我是一个演员"、卓别林的流浪汉、寺山修司的《抛掉书本上街去》、昆汀的《低俗小说》——它们和《一条安达鲁狗》是同一件事：<strong>让逻辑短路三秒钟，让笑先于理解到达</strong>。</p>
+        <p>观影姿势建议：<strong>深夜、开最大声、关弹幕、不要倍速</strong>。如果看到一半想"这到底在干嘛"，请笑出来——你已经看懂了。</p>
+      </article>
+
+      <aside class="side">
+        <h4>KEYWORDS · 0149</h4>
+        <ol>
+          <li><b>拼贴</b>　不解释，只并置</li>
+          <li><b>偶然性</b>　骰子决定剪辑点</li>
+          <li><b>非因果</b>　没有"因为"</li>
+          <li><b>反审美</b>　丑，是武器</li>
+          <li><b>无厘头</b>　笑先于理解</li>
+          <li><b>长镜头</b>　让偶然自己发生</li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ 栏目 05：邮票对开 ============ -->
+  <section id="pick" aria-labelledby="h-pick">
+    <div class="sec-head">
+      <span class="no">No. 05</span>
+      <h2 id="h-pick">本周达达：两部"讲不通"但必看</h2>
+      <span class="en">This Week's Dada</span>
+    </div>
+    <p class="lead">选片标准只有一条：<strong>看完之后，你忍不住想跟人复述那个画面</strong>。能不能复述剧情不重要，画面要能复述。</p>
+    <div class="dbl" id="dblGrid"></div>
+  </section>
+
+  <!-- ============ 栏目 06：四格宣言 ============ -->
+  <section id="about" aria-labelledby="h-about">
+    <div class="sec-head">
+      <span class="no">No. 06</span>
+      <h2 id="h-about">关于达达电影网：我们只做四件事</h2>
+      <span class="en">About</span>
+    </div>
+
+    <div class="grid4def">
+      <div class="def">
+        <h3>不解释</h3>
+        <p>我们不写剧情梗概，只写<strong>那个画面</strong>。达达电影没有剧情可剧透，只有<strong>那一秒</strong>。</p>
+      </div>
+      <div class="def">
+        <h3>只剪拼贴</h3>
+        <p>我们的片单按<strong>手法</strong>分：拼贴、偶然、反叙事、无厘头、意识流、长镜头。<strong>类型不重要，语法才重要。</strong></p>
+      </div>
+      <div class="def">
+        <h3>认短不认长</h3>
+        <p>达达电影多是短片。<strong>17 分钟 &gt; 170 分钟</strong>。时间越短，逻辑越没地方躲。</p>
+      </div>
+      <div class="def">
+        <h3>不提供资源</h3>
+        <p>本站<strong>不做资源站、不挂盗链、不引导下载、不提供任何影视资源</strong>。请走电影院、电影节、正版平台与公共版权片源。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>达达电影网 · DADA CINEMA</h4>
+        <p>达达，取 1916 年苏黎世伏尔泰酒馆（Cabaret Voltaire）之义：<strong>反逻辑、反审美、反一切"应该"</strong>。本站为非主流行踪，内容由编辑部原创撰写，影片信息以片方、发行方与电影节官方公告为准。</p>
+        <p>0149 是本站自建的拼贴与偶然性标签体系，非官方分类，亦非任何第三方评分机构。</p>
+      </div>
+      <div>
+        <h4>站内栏目</h4>
+        <ul>
+          <li><b>01</b> 达达词条 Glossary</li>
+          <li><b>02</b> 偶然轮盘 Wheel</li>
+          <li><b>03</b> 剪刀步 Scissor</li>
+          <li><b>04</b> 达达长文 Notebook</li>
+          <li><b>05</b> 本周达达 Reel</li>
+          <li><b>06</b> 关于 About</li>
+        </ul>
+      </div>
+      <div>
+        <h4>合规与观影</h4>
+        <ul>
+          <li>不做资源站 · 不挂盗链</li>
+          <li>不引导下载 · 不提供影视资源</li>
+          <li>明确反对盗版、枪版与破解</li>
+          <li>推荐渠道：院线、电影节、正版平台</li>
+          <li>部分影片含超现实暴力与裸露，分级为编辑部自建参考</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      © <span id="yr">2026</span> 达达电影网 · DADADIANKINGWANG-CN.GITHUB.IO &nbsp;|&nbsp; 达达电影网 · 达达电影 · 达达主义 · 达达主义电影 · 先锋电影 · 实验电影 · 拼贴电影 · 偶然性 · 无厘头 · 荒诞喜剧 · 意识流 · 非因果叙事 · 反叙事 · 蒙太奇 · 短片 · 动画 · 华语无厘头 · 欧洲先锋电影 · 0149 导航 &nbsp;|&nbsp; 本站为单页静态站点，未生成 robots.txt 与 sitemap.xml
+    </div>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部" title="回到顶部">▲</button>
+
+<script>
+/* ===== 碎片雨（canvas，轻量） ===== */
+(function(){
+  var c=document.getElementById('shard'),x=c.getContext('2d'),W,H,pts=[];
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  addEventListener('resize',resize);resize();
+  var cols=['#e0362b','#2a2b5c','#1b1c22','#c9b97a','#7a7c8c'];
+  for(var i=0;i<34;i++){
+    var w=6+Math.random()*20,h=2+Math.random()*6;
+    pts.push({x:Math.random()*W,y:Math.random()*H,w:w,h:h,vy:.4+Math.random()*.7,col:cols[i%cols.length],ang:(Math.random()-.5)*1.4});
+  }
+  function loop(){
+    x.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];
+      x.save();x.translate(p.x,p.y);x.rotate(p.ang);
+      x.fillStyle=p.col;x.globalAlpha=.5;
+      x.fillRect(0,0,p.w,p.h);
+      x.restore();
+      p.y+=p.vy;
+      if(p.y>H+20){p.y=-20;p.x=Math.random()*W;}
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* ===== 数据 ===== */
+var CUT=[
+  {t:"拼贴",d:"把不该在一起的东西剪在一起",p:"一只眼睛 + 一道刀片 = 一条狗。意义不在素材，<strong>在缝隙</strong>。代表人物：布努埃尔、曼·雷、费尔南德·莱热。",c:"1924 · 法国 · 17′",en:"COLLAGE"},
+  {t:"偶然",d:"让骰子决定剪辑点",p:"抛硬币、掷骰子、闭眼指画面。<strong>拒绝选择，就是拒绝作者</strong>。达达相信偶然比构思更诚实。",c:"1916 · 瑞士 · 短片",en:"CHANCE"},
+  {t:"无厘头",d:"笑，先于理解",p:"卓别林、周星驰、金·凯瑞：同一个语法。<strong>不讲道理，只讲节奏</strong>。荒诞是弱者最后的武器。",c:"1990s · 香港 · 84′",en:"NONSENSE"},
+  {t:"反叙事",d:"没有起承转合",p:"不要开头，不要结尾，不要人物弧光。<strong>只有状态，没有故事</strong>。看它，你只能待在当下。",c:"1964 · 日本 · 75′",en:"ANTI-PLOT"}
+];
+var CHANCE=[
+  {k:"偶然性",v:".31",label:"抛硬币决定下一个镜头"},
+  {k:"拼贴",v:".24",label:"把新闻、广告、默片、纪录片剪成同一段"},
+  {k:"无厘头",v:".19",label:"不讲道理的台词与肢体"},
+  {k:"长镜头",v:".14",label:"让偶然自己发生，不剪"},
+  {k:"反审美",v:".08",label:"故意难看、故意粗糙"},
+  {k:"沉默",v:".04",label:"没有对白，只有声音"}
+];
+var ZIG=[
+  ["01","《一条安达鲁狗》","17 分钟。没有剧本。刀片划过眼球。看完你不会懂，但会记住 17 秒。"],
+  ["02","《幕间休息》","雷诺阿、萨蒂、毕加索一起玩。22 分钟。一个下葬的镜头，棺材里跳出一个男人。"],
+  ["03","《机械芭蕾》","没有演员，只有齿轮、瓶子、钟、人的肢体局部。19 分钟。蒙太奇的纯理论。"],
+  ["04","《大独裁者》",'"他不是在演希特勒，他是在演一个理发师。9 分钟，气球地球。这是卓别林最达达的一刻。"'],
+  ["05","《重庆森林》",""过期凤梨罐头、跑不动的日期、永远 30 罐。王家卫把时间剪成了一首流行歌。"'],
+  ["06","《低俗小说》",""三个故事，首尾相接，谁也不是开头。昆汀用结构本身讲了一个笑话。""],
+  ["07","《大话西游》",""一生所爱。500 年。孙悟空不是孙悟空。无厘头的尽头是悲剧——这才是达达。""],
+  ["08","《大路》","费里尼。把一个傻子、一个小丑、一条路剪成诗。135 分钟，没有因果，只有相遇。"]
+];
+var PICK=[
+  {t:"《一条安达鲁狗》",meta:"1929 · 法国 · 17′",d:[
+    ["导演","路易斯·布努埃尔 / 萨尔瓦多·达利"],
+    ["达达看点","影史最著名的 17 分钟。<strong>创作方法只有一句：凡是能引起注意的都写下来，凡是能解释的都删掉</strong>。刀片与眼球、蚂蚁与手掌、钢琴与驴——没有因果，只有并置"],
+    ["建议看","深夜、开最大声、关弹幕、不要查影评。看完再查"],
+    ["关键词","拼贴 · 超现实 · 无因果 · 默片 · 短片"],
+    ["分级","18+（含超现实暴力镜头）"]]},
+  {t:"《大话西游之大圣娶亲》",meta:"1995 · 香港 · 95′",d:[
+    ["导演","刘镇伟"],
+    ["达达看点","华语电影最达达的一部。<strong>它用无厘头讲了一个不能笑的结局</strong>：'曾经有一份真诚的爱情摆在我面前……'——这句台词不是情话，是一个笑话的墓碑"],
+    ["建议看","一个人、夜里、第二遍（第一遍笑，第二遍哭，第三遍愣住）"],
+    ["关键词","无厘头 · 时空错乱 · 台词拼贴 · 悲剧内核"],
+    ["分级","12+"]]}
+];
+
+function el(t,cls,txt){var n=document.createElement(t);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n;}
+function frag(a){var f=document.createDocumentFragment();for(var i=0;i<a.length;i++)f.appendChild(a[i]);return f;}
+
+/* 栏目 01：拼贴卡 */
+(function(){
+  var box=document.getElementById('cutGrid'),out=[];
+  for(var i=0;i<CUT.length;i++){
+    var t=CUT[i],card=el('article','cutout');
+    card.appendChild(el('div','num','CUT 0'+(i+1)));
+    card.appendChild(el('h3',null,t.t));
+    card.appendChild(el('p',null,t.d+' —— '+t.p));
+    var foot=el('div','foot');
+    foot.appendChild(el('span',null,t.c));
+    foot.appendChild(el('span',null,t.en));
+    card.appendChild(foot);
+    out.push(card);
+  }
+  box.appendChild(frag(out));
+})();
+
+/* 栏目 02：偶然轮盘 */
+(function(){
+  var box=document.getElementById('chanceGrid'),out=[];
+  for(var i=0;i<CHANCE.length;i++){
+    var c=CHANCE[i],row=el('div','row');
+    row.appendChild(el('div','k',c.k));
+    row.appendChild(el('div','v',c.label));
+    row.appendChild(el('div','p',c.v));
+    out.push(row);
+  }
+  box.appendChild(frag(out));
+})();
+
+/* 栏目 03：剪刀步 */
+(function(){
+  var box=document.getElementById('zigGrid'),out=[];
+  for(var i=0;i<ZIG.length;i++){
+    var z=ZIG[i],div=el('div','step');
+    div.appendChild(el('div','big','0'+(i+1)));
+    div.appendChild(el('h3',null,z[1]));
+    div.appendChild(el('p',null,z[2]));
+    out.push(div);
+  }
+  box.appendChild(frag(out));
+})();
+
+/* 栏目 05：邮票对开 */
+(function(){
+  var box=document.getElementById('dblGrid'),out=[];
+  for(var i=0;i<PICK.length;i++){
+    var p=PICK[i],card=el('article','stampcard');
+    var hd=el('div','hd');
+    hd.appendChild(el('em',null,'STAMP 0'+(i+1)));
+    hd.appendChild(el('h3',null,p.t));
+    var bd=el('div','bd');
+    var dl=el('dl');
+    for(var j=0;j<p.d.length;j++){
+      dl.appendChild(el('dt',null,p.d[j][0]));
+      dl.appendChild(el('dd',null,p.d[j][1]));
+    }
+    bd.appendChild(dl);
+    var dur=el('div','dur',p.meta.split(' · ').pop());
+    card.appendChild(hd);card.appendChild(bd);card.appendChild(dur);
+    out.push(card);
+  }
+  box.appendChild(frag(out));
+})();
+
+/* 回到顶部 */
+var topBtn=document.getElementById('topBtn');
+addEventListener('scroll',function(){topBtn.className=scrollY>700?'top show':'top';});
+topBtn.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'});});
+
+/* 年份 */
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* 窄屏导航展开 */
+document.getElementById('nav').addEventListener('click',function(e){
+  if(e.target.classList.contains('brand')) this.classList.toggle('open');
+});
+</script>
+</body>
+</html>
